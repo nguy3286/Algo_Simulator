@@ -8,7 +8,8 @@
     <style>
         .grid-container {
           display: grid;
-          grid-template-columns: auto auto auto auto;
+          /* grid-template-columns: auto auto auto auto; */
+          grid-template-columns: repeat(3, auto);
           background-color: #2196F3;
           padding: 10px;
         }
@@ -25,27 +26,20 @@
     
     <div class="grid-container">
         <div class="grid-item">1</div>
-        <div class="grid-item">2</div>
-        <div class="grid-item">3</div>  
-        <div class="grid-item">4</div>
-        <div class="grid-item">5</div>
-        <div class="grid-item">6</div>  
-        <div class="grid-item">7</div>
-        <div class="grid-item">8</div>
-        <div class="grid-item">9</div>  
+        <div class="grid-item">2</div> 
     </div>
 
 <script>
     // var toAdd = document.createDocumentFragment();
-    // for (var i=0; i < 11; i++)
-    // {
+    var grid_div = document.getElementsByClassName("grid-container")[0];
+
+    for (var i=1; i < 11; i++)
+    {
         var newDiv = document.createElement('div');
-        // newDiv.id = 'r' + i;
         newDiv.className = 'grid-item';
-        newDiv.innerText = '10';
-        // toAdd.appendChild(newDiv);
-        document.getElementsByClassName("grid-container")[0].appendChild(newDiv);    
-    // }
+        newDiv.innerText = i;
+        grid_div.appendChild(newDiv);    
+    }
     // console.log(toAdd);
     // document.getElementsByClassName("grid-container")[0] = toAdd;
     // appendChild(toAdd);
