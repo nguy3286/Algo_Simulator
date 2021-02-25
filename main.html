@@ -23,8 +23,10 @@
 </head>
 <body>
     <div class="grid-container"></div><br>
-    <label for="input_arr">Give an array: </label>
-    <input type="text" id="input_arr" placeholder="[1,2,3,4]"><br>
+    <label for="input_arr">Array: </label>
+    <input type="text" id="input_arr" placeholder="[2,7,11,15]"><br>
+    <label for="input_arr">Target: </label>
+    <input type="text" id="input_target" placeholder="9"><br>
     <button onclick="init_array()">Run</button>
 
 <script>
@@ -32,25 +34,63 @@
     var newDiv = null;
 
     function init_array()
-    {
+    {   
+        grid_div.innerHTML = "";    // empty div of last inputted array
+        var input_target = document.getElementById("input_target").value;
         var input_arr = document.getElementById("input_arr").value;
-        console.log(input_arr);
-        console.log("bruhhh");
-        input_arr = input_arr.replace(/\s/g, '');   // get rid of empty string
-        input_arr = input_arr.slice(1, -1);         // delete '[' and ']'
-        input_arr = input_arr.split(',');
-        var N = input_arr.length;
-        console.log(input_arr);
+        if ((input_arr == "") || (input_target == "")) return null; // checking that user input is valid
 
+        input_target = parseInt(input_target);
+        input_arr = input_arr.replace(/\s/g, '').slice(1, -1).split(',').map(x=>+x);   // get rid of empty string, delete '[' and ']', split on comma, and convert '2' to 2
+        input_arr.sort(function(a, b) {
+            return a - b;
+        });
+        var N = input_arr.length;
+        
         for (var i=0; i < N; i++)
         {
             newDiv = document.createElement('div');
             newDiv.className = 'grid-item';
+            newDiv.id = i;
             newDiv.innerText = input_arr[i];
             grid_div.appendChild(newDiv);  
         }
+        var res = twoSum(input_arr, input_target, N);
+        console.log(res);
     }
 
+    async function twoSum(A, target, N)
+    {
+        var curr_sum, l = 0, r = N-1, l_color = "rgb(126, 11, 11)", r_color = "rgb(16, 128, 62)";
+        document.getElementById(l).style.backgroundColor = l_color;
+        document.getElementById(r).style.backgroundColor = r_color;
+
+        while (l < r)
+        {
+            await sleep(2000);
+            curr_sum = A[l] + A[r];
+            if (curr_sum == target) return [A[l], A[r]];
+            else if (curr_sum < target){
+                if (l+1 < N) move_ptr(l, l+1, "rgb(126, 11, 11)");
+                l++;
+            }
+            else {
+                if (r-1 >= 0) move_ptr(r, r-1, "rgb(16, 128, 62)");
+                r--;
+            }
+        }
+    }
+
+    function move_ptr(old_idx, new_idx, color)
+    {
+        document.getElementById(old_idx).style.backgroundColor = "rgb(255, 255, 255, 0.8)";
+        document.getElementById(new_idx).style.backgroundColor = color;
+    }
+    
+    function sleep(ms)
+    {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
 </script>
 
 </body>
