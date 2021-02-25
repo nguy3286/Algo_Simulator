@@ -8,41 +8,49 @@
     <style>
         .grid-container {
           display: grid;
-          /* grid-template-columns: auto auto auto auto; */
-          grid-template-columns: repeat(3, auto);
+          grid-template-columns: repeat(35, auto);
           background-color: #2196F3;
-          padding: 10px;
+          padding: 5px;
         }
         .grid-item {
           background-color: rgba(255, 255, 255, 0.8);
           border: 1px solid rgba(0, 0, 0, 0.8);
-          padding: 20px;
-          font-size: 30px;
+          padding: 6px;
+          font-size: 18px;
           text-align: center;
         }
     </style>
 </head>
 <body>
-    
-    <div class="grid-container">
-        <div class="grid-item">1</div>
-        <div class="grid-item">2</div> 
-    </div>
+    <div class="grid-container"></div><br>
+    <label for="input_arr">Give an array: </label>
+    <input type="text" id="input_arr" placeholder="[1,2,3,4]"><br>
+    <button onclick="init_array()">Run</button>
 
 <script>
-    // var toAdd = document.createDocumentFragment();
     var grid_div = document.getElementsByClassName("grid-container")[0];
+    var newDiv = null;
 
-    for (var i=1; i < 11; i++)
+    function init_array()
     {
-        var newDiv = document.createElement('div');
-        newDiv.className = 'grid-item';
-        newDiv.innerText = i;
-        grid_div.appendChild(newDiv);    
+        var input_arr = document.getElementById("input_arr").value;
+        console.log(input_arr);
+        console.log("bruhhh");
+        input_arr = input_arr.replace(/\s/g, '');   // get rid of empty string
+        input_arr = input_arr.slice(1, -1);         // delete '[' and ']'
+        input_arr = input_arr.split(',');
+        var N = input_arr.length;
+        console.log(input_arr);
+
+        for (var i=0; i < N; i++)
+        {
+            newDiv = document.createElement('div');
+            newDiv.className = 'grid-item';
+            newDiv.innerText = input_arr[i];
+            grid_div.appendChild(newDiv);  
+        }
     }
-    // console.log(toAdd);
-    // document.getElementsByClassName("grid-container")[0] = toAdd;
-    // appendChild(toAdd);
+
 </script>
 
 </body>
