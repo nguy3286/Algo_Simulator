@@ -6,26 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
-  <!-- <style>
+  <style>
     .hljs-ln-line[data-line-number="2"]	{
-      background-color: #2196F3;
+      background-color: #f4bc40;
     }
-  </style> -->
+  </style>
 
 </head>
 <body>
   <pre>
-    <code class="python">def twoSum(nums, target):
-    N = len(nums)
-    for i in range(N): nums[i] = (nums[i],i)
-    nums.sort()
-        
-    l, r = 0, N-1
-    while l < r:
-        curr_sum = nums[l][0] + nums[r][0]
-        if curr_sum == target: return [nums[l][1], nums[r][1]]
-        elif curr_sum < target: l += 1
-        else: r -= 1
+    <code class="python">  def twoSum(nums, target):
+      nums.sort()
+      l, r = 0, len(nums)-1
+      
+      while l < r:
+          curr_sum = nums[l][0] + nums[r][0]
+          if curr_sum == target: return [nums[l][1], nums[r][1]]
+          elif curr_sum < target: l += 1
+          else: r -= 1
     </code>
   </pre>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
@@ -34,6 +32,7 @@
   <script>
     hljs.initHighlightingOnLoad();
     hljs.initLineNumbersOnLoad();
+    // document.getElementsByClassName("hljs-ln-line hljs-ln-code")[1].style.backgroundColor = "red";
   </script>
 </body>
 </html>

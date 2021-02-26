@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Algo Simulator</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
     <style>
         .grid-container {
           display: grid;
@@ -22,43 +23,61 @@
     </style>
 </head>
 <body>
-    <div class="grid-container"></div><br>
+    <div class="grid-container"></div>
+
+    <pre>
+        <code class="python">  def twoSum(nums, target):
+      nums.sort()
+      l, r = 0, len(nums)-1
+      while l < r:
+          curr_sum = nums[l][0] + nums[r][0]
+          if curr_sum == target: return [nums[l][1], nums[r][1]]
+          elif curr_sum < target: l += 1
+          else: r -= 1
+        </code>
+    </pre>
+    
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+    <!-- https://github.com/wcoder/highlightjs-line-numbers.js/ -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+    
+    
+    
     <label for="input_arr">nums = </label>
-    <input type="text" id="input_arr" placeholder="[2,7,11,15]"><br>
+    <input type="text" id="input_arr" placeholder="[1,2,7,11,15]"><br>
     <label for="input_arr">target = </label>
     <input type="text" id="input_target" placeholder="9"><br>
     <button onclick="init_array()">Run</button><br>
 
-    <pre class="brush: java">public static void main(String args[]) {
-        System.out.println("Hello World!");
-    }
-    </pre>
-    <!-- SyntaxHighlighter -->
-    <link href='http://alexgorbatchev.com/pub/sh/current/styles/shCore.css' rel='stylesheet' type='text/css'/>
-    <link href='http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css' rel='stylesheet' type='text/css'/>
-    <script src='http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js' type='text/javascript'></script>
-    <script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJava.js' type='text/javascript'></script>
-    <script language='javascript' type='text/javascript'>
-        SyntaxHighlighter.all();
-    </script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+</script>
 
 <script>
-    var grid_div = document.getElementsByClassName("grid-container")[0];
-    var newDiv = null;
 
     function init_array()
     {   
-        grid_div.innerHTML = "";    // empty div of last inputted array
+        // Read user input and error check
         var input_target = document.getElementById("input_target").value;
         var input_arr = document.getElementById("input_arr").value;
-        if ((input_arr == "") || (input_target == "")) return null; // checking that user input is valid
+        if ((input_arr == "") || (input_target == "")) return null;
 
+        // Convert input string to array
         input_target = parseInt(input_target);
         input_arr = input_arr.replace(/\s/g, '').slice(1, -1).split(',').map(x=>+x);   // get rid of empty string, delete '[' and ']', split on comma, and convert '2' to 2
-        input_arr.sort(function(a, b) {
-            return a - b;
-        });
         var N = input_arr.length;
+        
+        build_array_div(N);
+        twoSum(input_arr, input_target, N);
+    }
+
+    function build_array_div(N)
+    {
+        var newDiv = null;
+        var grid_div = document.getElementsByClassName("grid-container")[0];
+        grid_div.innerHTML = "";    // empty div of last inputted array
         
         for (var i=0; i < N; i++)
         {
@@ -68,8 +87,6 @@
             newDiv.innerText = input_arr[i];
             grid_div.appendChild(newDiv);  
         }
-        var res = twoSum(input_arr, input_target, N);
-        console.log(res);
     }
 
     async function twoSum(A, target, N)
@@ -77,32 +94,74 @@
         var curr_sum, l = 0, r = N-1, l_color = "rgb(126, 11, 11)", r_color = "rgb(16, 128, 62)";
         document.getElementById(l).style.backgroundColor = l_color;
         document.getElementById(r).style.backgroundColor = r_color;
+        highlight(0);
+        await sleep(2000);
+
+        highlight(1);
+        A.sort(function(a, b) {
+            return a - b;
+        });
+        build_array_div(A.length);
+        await sleep(2000);
+        unhighlight(1);
+
+        highlight(2);
+        await sleep(2000);
+        unhighlight(2);
 
         while (l < r)
         {
+            highlight(3);
             await sleep(2000);
+            unhighlight(3);
+
             curr_sum = A[l] + A[r];
-            if (curr_sum == target) return [A[l], A[r]];
+            highlight(4);
+            await sleep(2000);
+            unhighlight(4);
+
+            if (curr_sum == target) {
+                highlight(5);
+                await sleep(2000);
+                unhighlight(5);
+                return [A[l], A[r]];
+            }
             else if (curr_sum < target){
+                highlight(6);
+                await sleep(1000);
                 if (l+1 < N) move_ptr(l, l+1, "rgb(126, 11, 11)");
                 l++;
+                await sleep(1500);
+                unhighlight(6);
             }
             else {
+                highlight(7);
+                await sleep(1000);
                 if (r-1 >= 0) move_ptr(r, r-1, "rgb(16, 128, 62)");
                 r--;
+                await sleep(1500);
+                unhighlight(7);
             }
         }
     }
 
-    function move_ptr(old_idx, new_idx, color)
-    {
+    function move_ptr(old_idx, new_idx, color) {
         document.getElementById(old_idx).style.backgroundColor = "rgb(255, 255, 255, 0.8)";
         document.getElementById(new_idx).style.backgroundColor = color;
     }
     
-    function sleep(ms)
-    {
-      return new Promise(resolve => setTimeout(resolve, ms));
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function highlight(row_idx) {
+        document.getElementsByClassName("hljs-ln-line hljs-ln-numbers")[row_idx].style.backgroundColor = "#ffcc00";
+        document.getElementsByClassName("hljs-ln-line hljs-ln-code")[row_idx].style.backgroundColor = "#ffcc00";
+    }
+
+    function unhighlight(row_idx) {
+        document.getElementsByClassName("hljs-ln-line hljs-ln-numbers")[row_idx].style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+        document.getElementsByClassName("hljs-ln-line hljs-ln-code")[row_idx].style.backgroundColor = "rgba(255, 255, 255, 0.8)";
     }
 </script>
 
