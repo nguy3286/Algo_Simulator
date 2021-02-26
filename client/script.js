@@ -92,7 +92,7 @@ async function twoSum(A, target)
 
 
 function move_ptr(old_idx, new_idx, color) {
-    document.getElementById(old_idx).style.backgroundColor = "rgb(255, 255, 255, 0.8)";
+    document.getElementById(old_idx).style.backgroundColor = null;
     document.getElementById(new_idx).style.backgroundColor = color;
 }
 
@@ -103,12 +103,13 @@ function sleep(ms) {
 
 
 function highlight(row_idx) {
-    document.getElementsByClassName("hljs-ln-line hljs-ln-numbers")[row_idx].style.backgroundColor = "#ffcc00";
-    document.getElementsByClassName("hljs-ln-line hljs-ln-code")[row_idx].style.backgroundColor = "#ffcc00";
+    console.log(document.getElementsByClassName("hljs-ln-line hljs-ln-numbers")[row_idx].style.backgroundColor);
+    document.getElementsByClassName("hljs-ln-line hljs-ln-numbers")[row_idx].style.backgroundColor = "rgba(255, 255, 0, 0.45)";
+    document.getElementsByClassName("hljs-ln-line hljs-ln-code")[row_idx].style.backgroundColor = "rgba(255, 255, 0, 0.45)";
 }
 
 
 function unhighlight(row_idx) {
-    document.getElementsByClassName("hljs-ln-line hljs-ln-numbers")[row_idx].style.backgroundColor = "rgb(255, 204, 0)";
-    document.getElementsByClassName("hljs-ln-line hljs-ln-code")[row_idx].style.backgroundColor = "rgb(255, 204, 0)";
+    document.getElementsByClassName("hljs-ln-line hljs-ln-numbers")[row_idx].style.backgroundColor = null;
+    document.getElementsByClassName("hljs-ln-line hljs-ln-code")[row_idx].style.backgroundColor = null;
 }
