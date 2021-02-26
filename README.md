@@ -4,6 +4,9 @@
 
 This tool allows users to trace the execution of popular/interesting algorithms (such as the two pointer approach for the Two Sum problem) on entered input.
 
+![alt text](https://github.com/nguy3286/Algo_Simulator/blob/main/files/loadView.PNG?raw=true)
+
+
 **Features to add**
 
 * A debugger style variable tracker
