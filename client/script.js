@@ -29,6 +29,7 @@ function build_array_div(A)
         newDiv.innerText = A[i];
         grid_div.appendChild(newDiv);  
     }
+    grid_div.style.display = "grid";
 }
 
 
