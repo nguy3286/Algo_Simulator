@@ -6,6 +6,8 @@ This tool allows users to trace the execution of popular/interesting algorithms 
 
 ![alt text](https://github.com/nguy3286/Algo_Simulator/blob/main/files/loadView.PNG?raw=true)
 
+![alt text](https://github.com/nguy3286/Algo_Simulator/blob/main/files/runView.PNG?raw=true)
+
 
 **Features to add**
 
