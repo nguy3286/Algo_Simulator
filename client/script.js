@@ -1,6 +1,3 @@
-hljs.initHighlightingOnLoad();
-hljs.initLineNumbersOnLoad();
-
 async function init_array()
 {   
     // Read user input and error check
