@@ -1,5 +1,9 @@
 # Algo_Simulator
 
-https://www.w3schools.com/css/css_grid.asp
+**Features to add**
+A debugger style variable tracker
 
-Example: https://www.w3schools.com/css/tryit.asp?filename=trycss_grid
+Buttons to speedup, slowdown, and pause execution.
+
+**Bugs**
+An interrupt needs to occurr when _Run Input_ or _Run Demo_ is clicked to halt execution of any uncompleted _Run Input_ or _Run Demo_ events
