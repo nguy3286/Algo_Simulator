@@ -109,6 +109,6 @@ function highlight(row_idx) {
 
 
 function unhighlight(row_idx) {
-    document.getElementsByClassName("hljs-ln-line hljs-ln-numbers")[row_idx].style.backgroundColor = "rgba(255, 255, 255, 0.8)";
-    document.getElementsByClassName("hljs-ln-line hljs-ln-code")[row_idx].style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+    document.getElementsByClassName("hljs-ln-line hljs-ln-numbers")[row_idx].style.backgroundColor = "rgb(255, 204, 0)";
+    document.getElementsByClassName("hljs-ln-line hljs-ln-code")[row_idx].style.backgroundColor = "rgb(255, 204, 0)";
 }
