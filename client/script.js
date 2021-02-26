@@ -1,9 +1,15 @@
-async function init_array()
+async function init_array(isDemo)
 {   
     // Read user input and error check
+    if (isDemo){
+        document.getElementById("input_target").value = "9";
+        input_arr = document.getElementById("input_arr").value = "[1,2,7,11,15]";
+    }
+    else {
+        if ((input_arr == "") || (input_target == "")) return null;
+    }
     var input_target = document.getElementById("input_target").value;
     var input_arr = document.getElementById("input_arr").value;
-    if ((input_arr == "") || (input_target == "")) return null;
 
     // Convert input string to array
     input_target = parseInt(input_target);

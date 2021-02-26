@@ -9,6 +9,7 @@ input, button {
     border-style: none;
 }
 
+/* https://www.w3schools.com/css/css_grid.asp */
 .grid-item {
     background-color: rgba(221, 72, 20, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
