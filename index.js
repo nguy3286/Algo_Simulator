@@ -1,5 +1,3 @@
-// https://medium.com/swlh/run-python-script-from-node-js-and-send-data-to-browser-15677fcf199f
-
 const port = 3000;
 
 // include the express module
@@ -96,19 +94,10 @@ app.get('/getCodeResult', function(req, res) {
 });
 
 
-// GET method route for the signin page.
-// It serves signin.html present in client folder
-app.get('/signin',function(req, res) {
-    res.sendFile(__dirname + '/client/signin.html');
+
+app.get('/getCSS', function(req, res) {
+    res.sendFile(__dirname + '/client/style.css');
 });
-
-
-// GET method route for the signup page.
-// It serves signin.html present in client folder
-app.get('/signup',function(req, res) {
-    res.sendFile(__dirname + '/client/signup.html');
-});
-
-app.get('/foo', function(req, res) {
-    res.sendFile(__dirname + '/client/foo.html');
+app.get('/getJS', function(req, res) {
+    res.sendFile(__dirname + '/client/script.js');
 });
