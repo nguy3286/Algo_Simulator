@@ -23,6 +23,8 @@
     </style>
 </head>
 <body>
+    <h1>Two Sum (Leetcode #1)</h1>
+
     <div class="grid-container"></div>
 
     <pre>
@@ -30,8 +32,8 @@
       nums.sort()
       l, r = 0, len(nums)-1
       while l < r:
-          curr_sum = nums[l][0] + nums[r][0]
-          if curr_sum == target: return [nums[l][1], nums[r][1]]
+          curr_sum = nums[l] + nums[r]
+          if curr_sum == target: return [nums[l], nums[r]]
           elif curr_sum < target: l += 1
           else: r -= 1
         </code>
@@ -57,7 +59,7 @@
 
 <script>
 
-    function init_array()
+    async function init_array()
     {   
         // Read user input and error check
         var input_target = document.getElementById("input_target").value;
@@ -67,45 +69,47 @@
         // Convert input string to array
         input_target = parseInt(input_target);
         input_arr = input_arr.replace(/\s/g, '').slice(1, -1).split(',').map(x=>+x);   // get rid of empty string, delete '[' and ']', split on comma, and convert '2' to 2
-        var N = input_arr.length;
         
-        build_array_div(N);
-        twoSum(input_arr, input_target, N);
+        build_array_div(input_arr);
+        await sleep(2000);
+        twoSum(input_arr, input_target);
     }
 
-    function build_array_div(N)
+    function build_array_div(A)
     {
         var newDiv = null;
         var grid_div = document.getElementsByClassName("grid-container")[0];
         grid_div.innerHTML = "";    // empty div of last inputted array
         
-        for (var i=0; i < N; i++)
+        for (var i=0; i < A.length; i++)
         {
             newDiv = document.createElement('div');
             newDiv.className = 'grid-item';
             newDiv.id = i;
-            newDiv.innerText = input_arr[i];
+            newDiv.innerText = A[i];
             grid_div.appendChild(newDiv);  
         }
     }
 
-    async function twoSum(A, target, N)
+    async function twoSum(A, target)
     {
-        var curr_sum, l = 0, r = N-1, l_color = "rgb(126, 11, 11)", r_color = "rgb(16, 128, 62)";
-        document.getElementById(l).style.backgroundColor = l_color;
-        document.getElementById(r).style.backgroundColor = r_color;
+        var curr_sum, N = A.length, l = 0, r = N-1, l_color = "rgb(126, 11, 11)", r_color = "rgb(16, 128, 62)";
+
         highlight(0);
         await sleep(2000);
+        unhighlight(0);
 
         highlight(1);
         A.sort(function(a, b) {
             return a - b;
         });
-        build_array_div(A.length);
+        build_array_div(A);
         await sleep(2000);
         unhighlight(1);
 
         highlight(2);
+        document.getElementById(l).style.backgroundColor = l_color;
+        document.getElementById(r).style.backgroundColor = r_color;
         await sleep(2000);
         unhighlight(2);
 
