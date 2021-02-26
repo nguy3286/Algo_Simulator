@@ -8,7 +8,7 @@ This tool allows users to trace the execution of popular/interesting algorithms 
 
 * A debugger style variable tracker
 
-* Buttons to speedup, slowdown, and pause execution.
+* Buttons to speedup, slowdown, and pause execution
 
 **Bugs**
 
