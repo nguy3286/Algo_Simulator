@@ -1,4 +1,4 @@
-# Algo_Simulator
+# Algorithm Tracer
 
 **Description**
 
