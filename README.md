@@ -26,7 +26,9 @@ The program terminates when no lines of code are highlighted anymore as pictured
 
 * Buttons to speedup, slowdown, and pause execution
 
-* A text display of the output
+* The output displayed as text
+
+* Support of other popular languages (Java, JavaScript, C, C++, etc.)
 
 * Additional algorithms problems (Island Count, Maximum Subarray Sum, etc.)
 
