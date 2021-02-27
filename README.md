@@ -6,7 +6,7 @@ This tool allows you to trace the execution of popular/interesting algorithms (s
 
 **How to try it out**
 
-Go to this link. The landing page should look similar to the screenshot below. To run either 1) click _Run Demo_ or 2) enter an array for nums (an array starts with '[' and ends with ']' and is seperated by commas) and an integer (no decimals) for target and click _Run Input_.
+Go to this [link](https://nguy3286.github.io/main.html). The landing page should look similar to the screenshot below. To run either 1) click _Run Demo_ or 2) enter an array for nums (an array starts with '[' and ends with ']' and is seperated by commas) and an integer (no decimals) for target and click _Run Input_.
 
 ![alt text](https://github.com/nguy3286/Algo_Simulator/blob/main/files/loadView.PNG?raw=true)
    
