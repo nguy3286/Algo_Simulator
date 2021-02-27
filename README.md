@@ -10,7 +10,8 @@ Go to this link. The landing page should look similar to the screenshot below. T
 
 ![alt text](https://github.com/nguy3286/Algo_Simulator/blob/main/files/loadView.PNG?raw=true)
    
-
+    
+    
 While the tracer is executing, it will resemble the screenshot below. The red array element highlighted is where the left pointer _l_ is currently pointing, and the green array element highlighted is where the right pointer _r_ is currently pointing.
 
 ![alt text](https://github.com/nguy3286/Algo_Simulator/blob/main/files/runView.PNG?raw=true)
