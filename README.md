@@ -2,7 +2,7 @@
 
 https://nguy3286.github.io/main.html
 
-***Description***
+## Description
 
 This tool allows you to trace the execution of popular/interesting algorithms (such as the two pointer approach for the Two Sum problem) on entered input.
 
