@@ -14,7 +14,7 @@ While the tracer is executing, it will resemble the screenshot below. The red ar
 
 ![alt text](https://github.com/nguy3286/Algo_Simulator/blob/main/files/runView.PNG?raw=true)
 
-
+The program terminates when no lines of code are highlighted anymore as pictured below. If a solution exists the two elements highlighted red and green should sum to target. 
 ![alt text](https://github.com/nguy3286/Algo_Simulator/blob/main/files/finishView.PNG?raw=true)
 
 **Features to add**
