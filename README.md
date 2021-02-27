@@ -30,6 +30,8 @@ The program terminates when no lines of code are highlighted anymore as pictured
 
 * Support of other popular languages (Java, JavaScript, C, C++, etc.)
 
+* Explanation of how a certain algorithm works
+
 * Additional algorithms problems (Island Count, Maximum Subarray Sum, etc.)
 
 ## Bugs
